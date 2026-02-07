@@ -1,0 +1,1 @@
+{"manifest_version": 3, "name": "Bot TC Auto Clicker 2.0", "version": "2.0", "description": "Extensão que faz cliques automáticos em elementos específicos do jogo", "permissions": ["activeTab", "scripting", "storage"], "action": {"default_popup": "popup.html", "default_title": "Bot TC Auto Clicker 2.0"}}
