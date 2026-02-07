@@ -3,41 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bot Interface</title>
+    <title>Advanced UI</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        .bar { height: 20px; background-color: green; margin: 4px 0; }
-        .services, .hospital, .logging { margin-top: 20px; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        #container { display: flex; flex-direction: column; align-items: center; padding: 20px; }
+        #stamina, #addiction { width: 100%; max-width: 600px; height: 30px; border-radius: 5px; margin: 10px 0; }
+        #stamina { background-color: lightgray; }
+        #addiction { background-color: lightgray; }
+        .bar { height: 100%; border-radius: 5px; }
+        #ticketCounter { font-size: 24px; margin: 10px 0; }
+        #log { width: 100%; max-width: 600px; height: 150px; overflow-y: auto; background-color: #e0ffe0; padding: 10px; border: 1px solid #b2fab2; border-radius: 5px; }
+        .button { margin: 5px; padding: 10px 20px; cursor: pointer; }
+        .responsive { display: flex; flex-direction: row; justify-content: space-between; width: 100%; } 
+        @media (max-width: 600px) {
+            .responsive { flex-direction: column; }
+        }
     </style>
 </head>
 <body>
-    <h1>Bot Interface</h1>
-    <div>
-        <h2>Stamina</h2>
-        <div class="bar" style="width: 70%;">70%</div>
-        <h2>Addiction</h2>
-        <div class="bar" style="width: 50%;">50%</div>
+    <div id="container">
+        <h1>Advanced UI</h1>
+        <div class="responsive">
+            <div>
+                <div id="stamina"><div class="bar" style="background-color: blue; width: 70%;"></div></div>
+                <div id="addiction"><div class="bar" style="background-color: yellow; width: 30%;"></div></div>
+            </div>
+            <div>
+                <div id="ticketCounter">Tickets: 0</div>
+                <button class="button" id="soloMode">Solo Robbery</button>
+                <button class="button" id="gangMode">Gang Robbery</button>
+            </div>
+        </div>
+        <div id="log" contenteditable="true">Log area (in green)</div>
     </div>
-    
-    <div>
-        <h2>Modes</h2>
-        <button>Solo Robbery</button>
-        <button>Gang Robbery</button>
-    </div>
-    
-    <div class="services">
-        <h2>City Services</h2>
-        <p>Details about city services...</p>
-    </div>
-    
-    <div class="hospital">
-        <h2>Hospital</h2>
-        <p>Hospital services and details...</p>
-    </div>
-    
-    <div class="logging">
-        <h2>Logging System</h2>
-        <p>Log: Event details will appear here...</p>
-    </div>
+    <script>
+        const staminaBar = document.querySelector('#stamina .bar');
+        const addictionBar = document.querySelector('#addiction .bar');
+        let tickets = 0;
+
+        document.getElementById('soloMode').addEventListener('click', function() {
+            tickets += 1;
+            updateUI();
+            log('Solo robbery initiated.');
+        });
+
+        document.getElementById('gangMode').addEventListener('click', function() {
+            tickets += 2;
+            updateUI();
+            log('Gang robbery initiated.');
+        });
+
+        function updateUI() {
+            document.getElementById('ticketCounter').innerText = `Tickets: ${tickets}`;
+            staminaBar.style.width = `${Math.max(0, parseFloat(staminaBar.style.width) - 10)}%`;
+            addictionBar.style.width = `${Math.min(100, parseFloat(addictionBar.style.width) + 5)}%`;
+        }
+
+        function log(message) {
+            const logArea = document.getElementById('log');
+            logArea.innerHTML += `\n${message}`;
+            logArea.scrollTop = logArea.scrollHeight; // Auto-scroll to the bottom
+        }
+    </script>
 </body>
 </html>
