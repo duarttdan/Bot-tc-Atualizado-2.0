@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Crims Bot Interface</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        button { padding: 10px 15px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Crims Bot Interface</h1>
+        <button id="staminaBtn">Click Stamina</button>
+        <button id="stealBtn">Steal</button>
+        <button id="acceptBtn">Accept</button>
+        <div class="tabs">
+            <button class="tab">Custom Tab 1</button>
+            <button class="tab">Custom Tab 2</button>
+        </div>
+    </div>
+    <script>
+        document.getElementById('staminaBtn').addEventListener('click', function() {
+            alert('Stamina Clicked!');
+        });
+        document.getElementById('stealBtn').addEventListener('click', function() {
+            alert('Steal Clicked!');
+        });
+        document.getElementById('acceptBtn').addEventListener('click', function() {
+            alert('Accept Clicked!');
+        });
+    </script>
+</body>
+</html>
