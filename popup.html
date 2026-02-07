@@ -2,36 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Crims Bot Interface</title>
+    <title>Bot Interface</title>
     <style>
-        body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
-        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        button { padding: 10px 15px; margin: 5px; border: none; border-radius: 5px; cursor: pointer; }
+        body { font-family: Arial, sans-serif; }
+        .bar { height: 20px; background-color: green; margin: 4px 0; }
+        .services, .hospital, .logging { margin-top: 20px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>The Crims Bot Interface</h1>
-        <button id="staminaBtn">Click Stamina</button>
-        <button id="stealBtn">Steal</button>
-        <button id="acceptBtn">Accept</button>
-        <div class="tabs">
-            <button class="tab">Custom Tab 1</button>
-            <button class="tab">Custom Tab 2</button>
-        </div>
+    <h1>Bot Interface</h1>
+    <div>
+        <h2>Stamina</h2>
+        <div class="bar" style="width: 70%;">70%</div>
+        <h2>Addiction</h2>
+        <div class="bar" style="width: 50%;">50%</div>
     </div>
-    <script>
-        document.getElementById('staminaBtn').addEventListener('click', function() {
-            alert('Stamina Clicked!');
-        });
-        document.getElementById('stealBtn').addEventListener('click', function() {
-            alert('Steal Clicked!');
-        });
-        document.getElementById('acceptBtn').addEventListener('click', function() {
-            alert('Accept Clicked!');
-        });
-    </script>
+    
+    <div>
+        <h2>Modes</h2>
+        <button>Solo Robbery</button>
+        <button>Gang Robbery</button>
+    </div>
+    
+    <div class="services">
+        <h2>City Services</h2>
+        <p>Details about city services...</p>
+    </div>
+    
+    <div class="hospital">
+        <h2>Hospital</h2>
+        <p>Hospital services and details...</p>
+    </div>
+    
+    <div class="logging">
+        <h2>Logging System</h2>
+        <p>Log: Event details will appear here...</p>
+    </div>
 </body>
 </html>
